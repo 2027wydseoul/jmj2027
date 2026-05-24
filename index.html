@@ -4,444 +4,796 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JMJ Seúl 2027 — Tu peregrinación completa</title>
-<meta name="description" content="Paquetes completos para la Jornada Mundial de la Juventud Seúl 2027. Vuelo, alojamiento, visa, seguro y tours por Corea. Agencia MICE oficial en Seúl.">
+<meta name="description" content="Paquetes completos para la Jornada Mundial de la Juventud Seúl 2027. Vuelo, alojamiento, visa, seguro y tours por Corea.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue:#1A5FA8; --blue-dk:#0F3D6E; --blue-lt:#E8F1FB; --blue-md:#3D82CC;
+  --gold:#C8941A; --gold-lt:#FDF3DC;
+  --teal:#0F6E56; --teal-lt:#E1F5EE;
+  --coral:#C23B22; --coral-lt:#FAECE7;
+  --gray:#F5F4F1; --ink:#1A1917; --muted:#6B6963;
+  --border:#E2E0D9; --white:#FFFFFF; --radius:14px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family:'DM Sans',sans-serif; background:#FAFAF8; color:var(--ink);
+  min-height:100vh; -webkit-font-smoothing:antialiased;
+  max-width:480px; margin:0 auto;
+}
 
-  :root {
-    --blue:    #1A5FA8;
-    --blue-lt: #E8F1FB;
-    --blue-md: #3D82CC;
-    --gold:    #C8941A;
-    --gold-lt: #FDF3DC;
-    --teal:    #0F6E56;
-    --teal-lt: #E1F5EE;
-    --coral:   #C23B22;
-    --coral-lt:#FAECE7;
-    --gray:    #F5F4F1;
-    --ink:     #1A1917;
-    --muted:   #6B6963;
-    --border:  #E2E0D9;
-    --white:   #FFFFFF;
-    --radius:  14px;
-    --shadow:  0 2px 16px rgba(0,0,0,0.07);
-  }
+/* PAGE SYSTEM */
+.page { display:none; min-height:100vh; }
+.page.active { display:block; }
 
-  html { scroll-behavior: smooth; }
+/* TOPBAR */
+.topbar {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 16px; border-bottom:1px solid var(--border);
+  background:var(--white); position:sticky; top:0; z-index:10;
+}
+.back-btn {
+  display:flex; align-items:center; gap:5px;
+  background:none; border:none; cursor:pointer;
+  font-size:14px; font-weight:500; color:var(--blue); padding:4px 0;
+  font-family:'DM Sans',sans-serif;
+}
+.back-btn:hover { opacity:0.75; }
+.topbar-title { font-size:15px; font-weight:500; color:var(--ink); }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #FAFAF8;
-    color: var(--ink);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-  }
+/* HERO — 가독성 개선 */
+.hero {
+  background:linear-gradient(160deg, #0C3560 0%, #1A5FA8 55%, #1E6DB8 100%);
+  color:white; text-align:center; padding:2.5rem 1.5rem 2rem;
+}
+.hero-eyebrow {
+  font-size:11px; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:#B8D8F5; margin-bottom:14px;
+}
+.hero-cross {
+  width:56px; height:56px; margin:0 auto 14px;
+  background:rgba(255,255,255,0.15);
+  border:2px solid rgba(255,255,255,0.45);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:26px;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif; font-size:clamp(26px,7vw,32px);
+  font-weight:700; line-height:1.2; color:#FFFFFF; margin-bottom:10px;
+}
+.hero h1 span { color:#7DC3F7; }
+.hero-sub {
+  font-size:14px; color:#D0E8FA; line-height:1.65;
+  max-width:340px; margin:0 auto 18px;
+}
+.hero-badges {
+  display:flex; flex-wrap:wrap; gap:7px;
+  justify-content:center; margin-bottom:22px;
+}
+.badge {
+  font-size:11px; font-weight:500; padding:4px 11px; border-radius:20px;
+  background:rgba(255,255,255,0.18); color:#FFFFFF;
+  border:1px solid rgba(255,255,255,0.38);
+}
+.hero-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold); color:#1A1200;
+  font-weight:600; font-size:15px; padding:13px 26px; border-radius:50px;
+  border:none; cursor:pointer; font-family:'DM Sans',sans-serif;
+  transition:transform 0.15s, opacity 0.15s;
+}
+.hero-cta:hover { transform:translateY(-2px); opacity:0.93; }
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--blue);
-    color: white;
-    text-align: center;
-    padding: 3rem 1.5rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, #2D78C8 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #93BDE8; margin-bottom: 16px;
-  }
-  .hero-cross {
-    width: 60px; height: 60px; margin: 0 auto 16px;
-    background: rgba(255,255,255,0.12);
-    border: 1.5px solid rgba(255,255,255,0.25);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 7vw, 34px);
-    font-weight: 700; line-height: 1.2;
-    margin-bottom: 10px;
-  }
-  .hero h1 span { color: #93BDE8; }
-  .hero-sub {
-    font-size: 14px; color: rgba(255,255,255,0.75);
-    line-height: 1.6; max-width: 340px; margin: 0 auto 20px;
-  }
-  .hero-badges {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    justify-content: center; margin-bottom: 24px;
-  }
-  .badge {
-    font-size: 11px; font-weight: 500; padding: 4px 12px;
-    border-radius: 20px; background: rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2);
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold); color: #1A1200;
-    font-weight: 500; font-size: 15px;
-    padding: 14px 28px; border-radius: 50px;
-    text-decoration: none; transition: transform 0.15s, opacity 0.15s;
-  }
-  .hero-cta:hover { transform: translateY(-2px); opacity: 0.93; }
+/* COUNTDOWN */
+.countdown-bar {
+  background:var(--gold-lt); border-bottom:1px solid #EDD98A;
+  padding:13px 1.5rem; text-align:center;
+}
+.countdown-inner {
+  display:flex; justify-content:center; align-items:center;
+  gap:18px; flex-wrap:wrap;
+}
+.countdown-label { font-size:12px; color:#7A5C10; font-weight:500; }
+.countdown-units { display:flex; gap:12px; }
+.c-unit { text-align:center; }
+.c-num { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; color:var(--gold); }
+.c-lbl { font-size:10px; color:#9A7020; letter-spacing:0.06em; text-transform:uppercase; }
 
-  /* ── COUNTDOWN ── */
-  .countdown-bar {
-    background: var(--gold-lt); border-bottom: 1px solid #EDD98A;
-    padding: 14px 1.5rem; text-align: center;
-  }
-  .countdown-inner {
-    display: flex; justify-content: center; align-items: center;
-    gap: 20px; flex-wrap: wrap;
-  }
-  .countdown-label { font-size: 12px; color: var(--gold); font-weight: 500; }
-  .countdown-units { display: flex; gap: 12px; }
-  .c-unit { text-align: center; }
-  .c-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--gold); }
-  .c-lbl { font-size: 10px; color: #9A7020; letter-spacing: 0.06em; text-transform: uppercase; }
+/* SECTIONS */
+.section { padding:1.75rem 1.25rem; }
+.section-title {
+  font-size:11px; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:12px;
+}
 
-  /* ── SECTION ── */
-  .section { padding: 2rem 1.25rem; max-width: 480px; margin: 0 auto; }
-  .section-title {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted);
-    margin-bottom: 14px;
-  }
+/* PACKAGE CARDS */
+.pkg-grid { display:flex; flex-direction:column; gap:9px; }
+.pkg-card {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:var(--radius); padding:15px 16px;
+  cursor:pointer; transition:border-color 0.2s, transform 0.15s;
+  text-decoration:none; color:inherit;
+  display:flex; align-items:flex-start; gap:13px;
+  font-family:'DM Sans',sans-serif; width:100%; text-align:left;
+}
+.pkg-card:hover { border-color:var(--blue-md); transform:translateY(-1px); }
+.pkg-card.featured { border-color:var(--blue); border-width:2px; }
+.pkg-icon {
+  width:40px; height:40px; border-radius:10px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+}
+.ib { background:var(--blue-lt); }
+.ig { background:var(--gold-lt); }
+.it { background:var(--teal-lt); }
+.ic { background:var(--coral-lt); }
+.pkg-body { flex:1; }
+.pkg-top { display:flex; align-items:center; gap:7px; margin-bottom:3px; }
+.pkg-name { font-weight:500; font-size:15px; }
+.pkg-pop {
+  font-size:10px; font-weight:500; background:var(--blue-lt);
+  color:var(--blue); padding:2px 8px; border-radius:20px;
+}
+.pkg-desc { font-size:12px; color:var(--muted); line-height:1.5; }
+.pkg-arr { color:var(--muted); font-size:20px; margin-top:2px; flex-shrink:0; }
 
-  /* ── PACKAGES ── */
-  .pkg-grid { display: flex; flex-direction: column; gap: 10px; }
-  .pkg-card {
-    background: var(--white); border: 1.5px solid var(--border);
-    border-radius: var(--radius); padding: 16px 18px;
-    cursor: pointer; transition: border-color 0.2s, transform 0.15s;
-    text-decoration: none; color: inherit;
-    display: flex; align-items: flex-start; gap: 14px;
-  }
-  .pkg-card:hover { border-color: var(--blue-md); transform: translateY(-1px); }
-  .pkg-card.featured { border-color: var(--blue); border-width: 2px; }
-  .pkg-icon {
-    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-  }
-  .pkg-icon.blue   { background: var(--blue-lt); }
-  .pkg-icon.gold   { background: var(--gold-lt); }
-  .pkg-icon.teal   { background: var(--teal-lt); }
-  .pkg-body { flex: 1; }
-  .pkg-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
-  .pkg-name { font-weight: 500; font-size: 15px; }
-  .pkg-pop {
-    font-size: 10px; font-weight: 500; background: var(--blue-lt);
-    color: var(--blue); padding: 2px 8px; border-radius: 20px;
-  }
-  .pkg-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .pkg-arrow { color: var(--muted); font-size: 18px; margin-top: 2px; }
+/* CTA */
+.cta-blue {
+  background:var(--blue); color:white; border-radius:var(--radius);
+  padding:18px; text-align:center; cursor:pointer;
+  text-decoration:none; display:block; border:none; width:100%;
+  font-family:'DM Sans',sans-serif;
+  transition:opacity 0.15s, transform 0.15s; margin-bottom:9px;
+}
+.cta-blue:hover { opacity:0.92; transform:translateY(-1px); }
+.cta-top { font-size:11px; color:#93BDE8; margin-bottom:3px; }
+.cta-mid { font-size:16px; font-weight:500; }
+.cta-wa {
+  background:#25D366; color:white; border-radius:var(--radius);
+  padding:13px 18px; text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  text-decoration:none; font-weight:500; font-size:14px;
+  transition:opacity 0.15s; border:none; cursor:pointer; width:100%;
+  font-family:'DM Sans',sans-serif;
+}
+.cta-wa:hover { opacity:0.9; }
 
-  /* ── MAIN CTA ── */
-  .main-cta {
-    background: var(--blue); color: white;
-    border-radius: var(--radius); padding: 20px 18px;
-    text-align: center; cursor: pointer;
-    text-decoration: none; display: block;
-    transition: opacity 0.15s, transform 0.15s;
-    margin-bottom: 10px;
-  }
-  .main-cta:hover { opacity: 0.92; transform: translateY(-1px); }
-  .cta-top { font-size: 11px; color: #93BDE8; margin-bottom: 4px; }
-  .cta-mid { font-size: 16px; font-weight: 500; }
+/* INFO LINKS */
+.link-list { display:flex; flex-direction:column; gap:8px; }
+.info-link {
+  display:flex; align-items:center; gap:12px;
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius); padding:13px 14px;
+  text-decoration:none; color:inherit; cursor:pointer;
+  transition:background 0.15s;
+  width:100%; text-align:left; font-family:'DM Sans',sans-serif;
+}
+.info-link:hover { background:var(--gray); }
+.info-icon {
+  width:36px; height:36px; border-radius:9px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:17px;
+}
+.info-text { flex:1; }
+.info-title { font-size:14px; font-weight:500; }
+.info-sub { font-size:12px; color:var(--muted); margin-top:1px; line-height:1.4; }
+.info-arr { color:var(--muted); font-size:18px; flex-shrink:0; }
 
-  .wa-cta {
-    background: #25D366; color: white;
-    border-radius: var(--radius); padding: 14px 18px;
-    text-align: center; display: flex;
-    align-items: center; justify-content: center; gap: 8px;
-    text-decoration: none; font-weight: 500; font-size: 14px;
-    transition: opacity 0.15s;
-  }
-  .wa-cta:hover { opacity: 0.9; }
+/* DETAIL PAGES */
+.detail-hero { padding:1.75rem 1.25rem 1.25rem; border-bottom:1px solid var(--border); }
+.detail-icon {
+  width:52px; height:52px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:26px; margin-bottom:12px;
+}
+.detail-hero h2 {
+  font-family:'Playfair Display',serif; font-size:22px; font-weight:700;
+  line-height:1.2; margin-bottom:6px;
+}
+.detail-hero p { font-size:13px; color:var(--muted); line-height:1.6; }
 
-  /* ── INFO LINKS ── */
-  .link-list { display: flex; flex-direction: column; gap: 8px; }
-  .info-link {
-    display: flex; align-items: center; gap: 12px;
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 13px 14px;
-    text-decoration: none; color: inherit;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .info-link:hover { background: var(--gray); border-color: #CCC9BE; }
-  .info-icon {
-    width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center; font-size: 17px;
-  }
-  .ic-blue   { background: var(--blue-lt); }
-  .ic-teal   { background: var(--teal-lt); }
-  .ic-gold   { background: var(--gold-lt); }
-  .ic-coral  { background: var(--coral-lt); }
-  .info-text { flex: 1; }
-  .info-title { font-size: 14px; font-weight: 500; }
-  .info-sub   { font-size: 12px; color: var(--muted); margin-top: 1px; }
-  .info-arr   { color: var(--muted); font-size: 16px; }
+.db { padding:1.25rem 1.25rem 0; }
+.db h3 { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:8px; margin-top:4px; }
+.db p { font-size:13px; color:var(--muted); line-height:1.65; margin-bottom:10px; }
 
-  /* ── SOCIAL ── */
-  .social-row {
-    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
-  }
-  .soc-btn {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 500;
-    padding: 10px 16px; border-radius: 50px;
-    text-decoration: none; border: 1.5px solid var(--border);
-    background: var(--white); color: var(--ink);
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .soc-btn:hover { border-color: #AAA7A0; background: var(--gray); }
-  .soc-btn.ig  { border-color: #E1306C33; }
-  .soc-btn.wa  { border-color: #25D36633; }
-  .soc-btn.tg  { border-color: #2CA5E033; }
-  .soc-btn.fb  { border-color: #1877F233; }
-  .soc-btn.yt  { border-color: #FF000033; }
-  .soc-icon { font-size: 18px; }
+.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.tag {
+  font-size:12px; padding:4px 11px; border-radius:20px;
+  background:var(--gray); color:var(--ink); border:1px solid var(--border);
+}
+.tag.tb { background:var(--blue-lt); color:var(--blue); border-color:#B8D4F0; }
+.tag.tt { background:var(--teal-lt); color:var(--teal); border-color:#A8DDD0; }
+.tag.tg { background:var(--gold-lt); color:var(--gold); border-color:#E8C86A; }
+.tag.tc { background:var(--coral-lt); color:var(--coral); border-color:#ECA898; }
 
-  /* ── DIVIDER ── */
-  hr { border: none; border-top: 1px solid var(--border); margin: 0.5rem 0; }
+.info-table { width:100%; border-collapse:collapse; margin-bottom:12px; }
+.info-table td {
+  font-size:13px; padding:9px 10px;
+  border-bottom:1px solid var(--border); vertical-align:top;
+}
+.info-table td:first-child { font-weight:500; color:var(--ink); width:45%; }
+.info-table td:last-child { color:var(--muted); }
 
-  /* ── FOOTER ── */
-  .footer {
-    text-align: center; padding: 1.5rem 1.25rem 2.5rem;
-    background: var(--gray); border-top: 1px solid var(--border);
-  }
-  .footer-name { font-weight: 500; font-size: 14px; }
-  .footer-sub  { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .footer-lang { font-size: 11px; color: var(--blue); margin-top: 8px; }
+.chk { list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:12px; }
+.chk li {
+  font-size:13px; color:var(--muted); line-height:1.5;
+  display:flex; gap:8px; align-items:flex-start;
+}
+.chk li::before { content:'✓'; color:var(--teal); font-weight:600; flex-shrink:0; }
+
+.alert {
+  background:var(--blue-lt); border:1px solid #B8D4F0;
+  border-radius:10px; padding:12px 14px; margin-bottom:12px;
+}
+.alert p { font-size:12px; color:#1A4A80; line-height:1.6; margin:0; }
+.alert.gold { background:var(--gold-lt); border-color:#E8C86A; }
+.alert.gold p { color:#7A5210; }
+
+.dcta { padding:1.25rem; border-top:1px solid var(--border); margin-top:1rem; }
+
+/* SOCIAL / FOOTER */
+.social-row { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.soc-btn {
+  display:flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:500; padding:9px 15px; border-radius:50px;
+  text-decoration:none; border:1.5px solid var(--border);
+  background:var(--white); color:var(--ink);
+  transition:background 0.15s;
+}
+.soc-btn:hover { background:var(--gray); }
+hr { border:none; border-top:1px solid var(--border); }
+.footer {
+  text-align:center; padding:1.5rem 1.25rem 2.5rem;
+  background:var(--gray); border-top:1px solid var(--border);
+}
+.footer-name { font-weight:500; font-size:14px; }
+.footer-sub { font-size:12px; color:var(--muted); margin-top:4px; }
+.footer-lang { font-size:11px; color:var(--blue); margin-top:8px; }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Agencia MICE · Seúl, Corea del Sur</p>
-  <div class="hero-cross">✝</div>
-  <h1>JMJ <span>Seúl</span> 2027</h1>
-  <p class="hero-sub">Tu peregrinación completa desde Latinoamérica y España. Vuelo, alojamiento, visa, seguro y tours — todo en español.</p>
-  <div class="hero-badges">
-    <span class="badge">✈️ Vuelos incluidos</span>
-    <span class="badge">🛂 Gestión de visa</span>
-    <span class="badge">🗣️ Guía en español</span>
-    <span class="badge">👥 Grupos y parroquias</span>
-  </div>
-  <a href="#cotizacion" class="hero-cta">
-    Solicitar cotización gratuita →
-  </a>
-</section>
+<!-- ══ HOME ══ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <p class="hero-eyebrow">Agencia MICE · Seúl, Corea del Sur</p>
+    <div class="hero-cross">✝</div>
+    <h1>JMJ <span>Seúl</span> 2027</h1>
+    <p class="hero-sub">Tu peregrinación completa desde Latinoamérica y España. Vuelo, alojamiento, visa, seguro y tours — todo en español.</p>
+    <div class="hero-badges">
+      <span class="badge">✈️ Vuelos incluidos</span>
+      <span class="badge">🛂 Gestión de visa</span>
+      <span class="badge">🗣️ Guía en español</span>
+      <span class="badge">👥 Grupos y parroquias</span>
+    </div>
+    <button class="hero-cta" onclick="goTo('page-cotizacion')">Solicitar cotización gratuita →</button>
+  </section>
 
-<!-- COUNTDOWN -->
-<div class="countdown-bar">
-  <div class="countdown-inner">
-    <span class="countdown-label">⏳ Faltan para la JMJ</span>
-    <div class="countdown-units">
-      <div class="c-unit"><div class="c-num" id="cd-d">—</div><div class="c-lbl">días</div></div>
-      <div class="c-unit"><div class="c-num" id="cd-h">—</div><div class="c-lbl">horas</div></div>
-      <div class="c-unit"><div class="c-num" id="cd-m">—</div><div class="c-lbl">min</div></div>
+  <div class="countdown-bar">
+    <div class="countdown-inner">
+      <span class="countdown-label">⏳ Faltan para la JMJ</span>
+      <div class="countdown-units">
+        <div class="c-unit"><div class="c-num" id="cd-d">—</div><div class="c-lbl">días</div></div>
+        <div class="c-unit"><div class="c-num" id="cd-h">—</div><div class="c-lbl">horas</div></div>
+        <div class="c-unit"><div class="c-num" id="cd-m">—</div><div class="c-lbl">min</div></div>
+      </div>
     </div>
   </div>
+
+  <div class="section">
+    <p class="section-title">Elige tu paquete</p>
+    <div class="pkg-grid">
+      <button class="pkg-card" onclick="goTo('page-basico')">
+        <div class="pkg-icon ib">🎒</div>
+        <div class="pkg-body">
+          <div class="pkg-top"><span class="pkg-name">Básico</span></div>
+          <p class="pkg-desc">Vuelo · Alojamiento · Registro JMJ oficial</p>
+        </div><span class="pkg-arr">›</span>
+      </button>
+      <button class="pkg-card featured" onclick="goTo('page-completo')">
+        <div class="pkg-icon ib">⭐</div>
+        <div class="pkg-body">
+          <div class="pkg-top"><span class="pkg-name">Completo</span><span class="pkg-pop">Más popular</span></div>
+          <p class="pkg-desc">Básico + Seguro · Visa · Guía hispanohablante</p>
+        </div><span class="pkg-arr">›</span>
+      </button>
+      <button class="pkg-card" onclick="goTo('page-premium')">
+        <div class="pkg-icon ig">👑</div>
+        <div class="pkg-body">
+          <div class="pkg-top"><span class="pkg-name">Premium</span></div>
+          <p class="pkg-desc">Todo incluido + Tours · Acompañante · K-cultura</p>
+        </div><span class="pkg-arr">›</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <p class="section-title">Reserva tu lugar</p>
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Respuesta en menos de 24 horas</p>
+      <p class="cta-mid">📋 Solicitar cotización grupal</p>
+    </button>
+    <a href="https://wa.me/821012345678?text=Hola!%20Me%20interesa%20la%20JMJ%20Se%C3%BAl%202027" class="cta-wa">💬 Escribir por WhatsApp ahora</a>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <p class="section-title">Información práctica</p>
+    <div class="link-list">
+      <button class="info-link" onclick="goTo('page-visa')">
+        <div class="info-icon ib">🛂</div>
+        <div class="info-text"><p class="info-title">Visa para Corea</p><p class="info-sub">Requisitos por país · K-ETA · Gestión incluida</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <button class="info-link" onclick="goTo('page-vuelos')">
+        <div class="info-icon it">✈️</div>
+        <div class="info-text"><p class="info-title">Vuelos desde tu país</p><p class="info-sub">México · Argentina · Colombia · España · y más</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <button class="info-link" onclick="goTo('page-alojamiento')">
+        <div class="info-icon ib">🛏️</div>
+        <div class="info-text"><p class="info-title">Alojamiento</p><p class="info-sub">Hotel · Familia coreana · Residencias JMJ</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <button class="info-link" onclick="goTo('page-itinerario')">
+        <div class="info-icon ig">📅</div>
+        <div class="info-text"><p class="info-title">Itinerario oficial JMJ</p><p class="info-sub">Fechas · Eventos · Vigilia y Misa final</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <button class="info-link" onclick="goTo('page-tours')">
+        <div class="info-icon it">🗺️</div>
+        <div class="info-text"><p class="info-title">Tours por Corea</p><p class="info-sub">Seúl · Gyeongju · Jeju · K-cultura</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <button class="info-link" onclick="goTo('page-seguro')">
+        <div class="info-icon ic">🛡️</div>
+        <div class="info-text"><p class="info-title">Seguro de viaje</p><p class="info-sub">Cobertura médica · Cancelación · Grupal</p></div>
+        <span class="info-arr">›</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <p class="section-title">Para grupos e iglesias</p>
+    <div class="link-list">
+      <button class="info-link" onclick="goTo('page-grupos')">
+        <div class="info-icon ib">⛪</div>
+        <div class="info-text"><p class="info-title">Paquete grupal parroquial</p><p class="info-sub">+15 personas · Descuento especial · Guía en español</p></div>
+        <span class="info-arr">›</span>
+      </button>
+      <a href="https://wa.me/821012345678?text=Hola!%20Soy%20agente%20o%20p%C3%A1rroco" class="info-link">
+        <div class="info-icon it">🤝</div>
+        <div class="info-text"><p class="info-title">¿Eres agente o párroco?</p><p class="info-sub">Comisiones · Material de promoción · Soporte</p></div>
+        <span class="info-arr">›</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <p class="section-title">Síguenos</p>
+    <div class="social-row">
+      <a href="https://instagram.com/wydseoul2027" class="soc-btn">📸 Instagram</a>
+      <a href="https://wa.me/821012345678" class="soc-btn">💬 WhatsApp</a>
+      <a href="https://t.me/wydseoul2027" class="soc-btn">✈️ Telegram</a>
+      <a href="https://facebook.com/wydseoul2027" class="soc-btn">👥 Facebook</a>
+    </div>
+  </div>
+
+  <hr>
+  <footer class="footer">
+    <p class="footer-name">JMJ Seúl 2027 — Agencia MICE Korea</p>
+    <p class="footer-sub">Seúl, Corea del Sur · Hablamos español</p>
+    <p class="footer-lang">🇰🇷 Especialistas en peregrinaciones a Corea</p>
+  </footer>
 </div>
 
-<!-- PACKAGES -->
-<div class="section">
-  <p class="section-title">Elige tu paquete</p>
-  <div class="pkg-grid">
 
-    <a href="#cotizacion" class="pkg-card">
-      <div class="pkg-icon blue">🎒</div>
-      <div class="pkg-body">
-        <div class="pkg-top"><span class="pkg-name">Básico</span></div>
-        <p class="pkg-desc">Vuelo internacional · Alojamiento · Registro JMJ oficial</p>
-      </div>
-      <span class="pkg-arrow">›</span>
-    </a>
-
-    <a href="#cotizacion" class="pkg-card featured">
-      <div class="pkg-icon blue">⭐</div>
-      <div class="pkg-body">
-        <div class="pkg-top">
-          <span class="pkg-name">Completo</span>
-          <span class="pkg-pop">Más popular</span>
-        </div>
-        <p class="pkg-desc">Todo el Básico + Seguro de viaje · Gestión de visa · Guía hispanohablante</p>
-      </div>
-      <span class="pkg-arrow">›</span>
-    </a>
-
-    <a href="#cotizacion" class="pkg-card">
-      <div class="pkg-icon gold">👑</div>
-      <div class="pkg-body">
-        <div class="pkg-top"><span class="pkg-name">Premium</span></div>
-        <p class="pkg-desc">Todo incluido + Tours por Corea · Acompañante exclusivo · Experiencias K-cultura</p>
-      </div>
-      <span class="pkg-arrow">›</span>
-    </a>
-
+<!-- ══ VISA ══ -->
+<div id="page-visa" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Visa para Corea</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">🛂</div>
+    <h2>Visa para Corea del Sur</h2>
+    <p>Gestionamos tu visa desde el primer paso. Según tu país, puede ser gratuita o tramitada en pocos días.</p>
+  </div>
+  <div class="db">
+    <h3>¿Necesito visa?</h3>
+    <div class="tag-row"><span class="tag tt">✓ Sin visa: México, Argentina, Chile, Perú, Colombia, España y más</span></div>
+    <div class="tag-row"><span class="tag tg">⚠ K-ETA requerido: mayoría de países exentos de visa</span></div>
+    <div class="tag-row"><span class="tag tc">📋 Visa requerida: Bolivia, Cuba, Nicaragua, Venezuela y otros</span></div>
+    <h3>K-ETA — Autorización electrónica</h3>
+    <p>La mayoría de latinoamericanos necesitan K-ETA (similar al ESTA de EE.UU.). Es rápida, online y con validez de 2 años.</p>
+    <table class="info-table">
+      <tr><td>Costo</td><td>aprox. USD $12</td></tr>
+      <tr><td>Tiempo de trámite</td><td>72 horas aprox.</td></tr>
+      <tr><td>Validez</td><td>2 años / múltiples entradas</td></tr>
+      <tr><td>Trámite</td><td>100% online</td></tr>
+    </table>
+    <div class="alert"><p>💡 En paquete <strong>Completo y Premium</strong>, el trámite de K-ETA o visa está incluido y lo gestionamos nosotros.</p></div>
+    <h3>Documentos necesarios</h3>
+    <ul class="chk">
+      <li>Pasaporte vigente con mínimo 6 meses de validez</li>
+      <li>Boleto de avión de ida y vuelta (te lo damos nosotros)</li>
+      <li>Reserva de alojamiento confirmada</li>
+      <li>Extracto bancario reciente (últimos 3 meses)</li>
+      <li>Carta de participación en la JMJ (la gestionamos)</li>
+    </ul>
+  </div>
+  <div class="dcta">
+    <a href="https://wa.me/821012345678?text=Hola!%20Tengo%20preguntas%20sobre%20la%20visa%20para%20Corea" class="cta-wa">💬 Consultar sobre mi visa por WhatsApp</a>
   </div>
 </div>
 
-<!-- CTA SECTION -->
-<div class="section" id="cotizacion" style="padding-top: 0;">
-  <p class="section-title">Reserva tu lugar</p>
-  <a href="https://wa.me/821012345678?text=Hola!%20Me%20interesa%20un%20paquete%20para%20la%20JMJ%20Se%C3%BAl%202027" class="main-cta">
-    <p class="cta-top">Respuesta en menos de 24 horas</p>
-    <p class="cta-mid">📋 Solicitar cotización grupal</p>
-  </a>
-  <a href="https://wa.me/821012345678?text=Hola!%20Me%20interesa%20la%20JMJ%20Se%C3%BAl%202027" class="wa-cta" style="margin-top:8px;">
-    <span class="soc-icon">💬</span> Escribir por WhatsApp ahora
-  </a>
-</div>
 
-<!-- INFO LINKS -->
-<div class="section" style="padding-top: 0;">
-  <p class="section-title">Información práctica</p>
-  <div class="link-list">
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-blue">🛂</div>
-      <div class="info-text">
-        <p class="info-title">Visa para Corea</p>
-        <p class="info-sub">Requisitos por país · K-ETA · Gestión incluida</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-teal">✈️</div>
-      <div class="info-text">
-        <p class="info-title">Vuelos desde tu país</p>
-        <p class="info-sub">México · Argentina · Colombia · España · y más</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-blue">🛏️</div>
-      <div class="info-text">
-        <p class="info-title">Alojamiento</p>
-        <p class="info-sub">Hotel · Familia coreana · Residencias JMJ</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-gold">📅</div>
-      <div class="info-text">
-        <p class="info-title">Itinerario oficial JMJ</p>
-        <p class="info-sub">Fechas · Eventos · Vigilia y Misa final</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-teal">🗺️</div>
-      <div class="info-text">
-        <p class="info-title">Tours por Corea</p>
-        <p class="info-sub">Seúl · Gyeongju · Jeju · K-cultura</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="#" class="info-link">
-      <div class="info-icon ic-coral">🛡️</div>
-      <div class="info-text">
-        <p class="info-title">Seguro de viaje</p>
-        <p class="info-sub">Cobertura médica · Cancelación · Grupal</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
+<!-- ══ VUELOS ══ -->
+<div id="page-vuelos" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Vuelos</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon it">✈️</div>
+    <h2>Vuelos desde tu país</h2>
+    <p>Conseguimos las mejores tarifas grupales con conexión a Seúl desde toda Latinoamérica y España.</p>
+  </div>
+  <div class="db">
+    <h3>Ciudades de origen disponibles</h3>
+    <div class="tag-row">
+      <span class="tag tb">🇲🇽 Ciudad de México</span><span class="tag tb">🇦🇷 Buenos Aires</span>
+      <span class="tag tb">🇨🇴 Bogotá</span><span class="tag tb">🇵🇪 Lima</span>
+      <span class="tag tb">🇨🇱 Santiago</span><span class="tag tb">🇪🇸 Madrid</span>
+      <span class="tag tb">🇧🇷 São Paulo</span><span class="tag tb">🇻🇪 Caracas</span>
+    </div>
+    <p>¿Tu ciudad no aparece? Consúltanos — si hay grupo, buscamos salida desde tu aeropuerto.</p>
+    <h3>Rutas principales a Seúl (ICN)</h3>
+    <table class="info-table">
+      <tr><td>México → Seúl</td><td>~14–16h con escala</td></tr>
+      <tr><td>Buenos Aires → Seúl</td><td>~26–30h con escala</td></tr>
+      <tr><td>Bogotá → Seúl</td><td>~22–26h con escala</td></tr>
+      <tr><td>Madrid → Seúl</td><td>~11–13h (directo disponible)</td></tr>
+      <tr><td>Lima → Seúl</td><td>~22–26h con escala</td></tr>
+    </table>
+    <h3>Ventajas de reservar con nosotros</h3>
+    <ul class="chk">
+      <li>Tarifas grupales — más baratas que reservar individual</li>
+      <li>Asientos bloqueados juntos para toda la parroquia</li>
+      <li>Flexibilidad de fechas para llegada anticipada</li>
+      <li>Seguro de cancelación incluido en paquete Completo</li>
+    </ul>
+    <div class="alert gold"><p>⏰ Los cupos de grupo se agotan rápido. Recomendamos reservar con al menos 8–10 meses de anticipación.</p></div>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Indica tu ciudad de origen</p>
+      <p class="cta-mid">📋 Solicitar cotización de vuelos</p>
+    </button>
   </div>
 </div>
 
-<!-- GROUPS -->
-<div class="section" style="padding-top: 0;">
-  <p class="section-title">Para grupos e iglesias</p>
-  <div class="link-list">
 
-    <a href="#cotizacion" class="info-link">
-      <div class="info-icon ic-blue">⛪</div>
-      <div class="info-text">
-        <p class="info-title">Paquete grupal parroquial</p>
-        <p class="info-sub">+15 personas · Descuento especial · Guía en español</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
-    <a href="https://wa.me/821012345678?text=Hola!%20Soy%20agente%20o%20p%C3%A1rroco%20y%20me%20interesa%20el%20programa%20de%20socios" class="info-link">
-      <div class="info-icon ic-teal">🤝</div>
-      <div class="info-text">
-        <p class="info-title">¿Eres agente o párroco?</p>
-        <p class="info-sub">Comisiones · Material de promoción · Soporte completo</p>
-      </div>
-      <span class="info-arr">›</span>
-    </a>
-
+<!-- ══ ALOJAMIENTO ══ -->
+<div id="page-alojamiento" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Alojamiento</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">🛏️</div>
+    <h2>Alojamiento en Seúl</h2>
+    <p>Tres opciones según presupuesto y preferencia, todos bien ubicados para la JMJ.</p>
+  </div>
+  <div class="db">
+    <h3>Opción A — Residencias JMJ oficiales</h3>
+    <p>Instalaciones del comité organizador. Ambiente de peregrinación, compartido con jóvenes de todo el mundo.</p>
+    <table class="info-table">
+      <tr><td>Tipo</td><td>Dormitorio compartido (4–8 personas)</td></tr>
+      <tr><td>Incluye</td><td>Desayuno y cena</td></tr>
+      <tr><td>Ideal para</td><td>Grupos juveniles y parroquias</td></tr>
+    </table>
+    <h3>Opción B — Homestay (familia coreana)</h3>
+    <p>Casas de familias coreanas católicas. Experiencia cultural única.</p>
+    <table class="info-table">
+      <tr><td>Tipo</td><td>Habitación privada o compartida</td></tr>
+      <tr><td>Incluye</td><td>Desayuno</td></tr>
+      <tr><td>Ideal para</td><td>Quienes buscan inmersión cultural</td></tr>
+    </table>
+    <h3>Opción C — Hotel 3★ / 4★</h3>
+    <p>Hoteles céntricos en Seúl con servicio completo. Incluido en paquete Premium.</p>
+    <table class="info-table">
+      <tr><td>Tipo</td><td>Habitación individual o doble</td></tr>
+      <tr><td>Incluye</td><td>Desayuno buffet</td></tr>
+      <tr><td>Ideal para</td><td>Grupos adultos, mayor comodidad</td></tr>
+    </table>
+    <div class="alert"><p>📍 Todos los alojamientos están a menos de 40 minutos del recinto principal de la JMJ.</p></div>
+  </div>
+  <div class="dcta">
+    <a href="https://wa.me/821012345678?text=Hola!%20Quiero%20saber%20sobre%20el%20alojamiento" class="cta-wa">💬 Consultar disponibilidad por WhatsApp</a>
   </div>
 </div>
 
-<!-- SOCIAL -->
-<div class="section" style="padding-top: 0;">
-  <p class="section-title">Síguenos y contáctanos</p>
-  <div class="social-row">
-    <a href="https://instagram.com/wydseoul2027" class="soc-btn ig">
-      <span class="soc-icon">📸</span> Instagram
-    </a>
-    <a href="https://wa.me/821012345678" class="soc-btn wa">
-      <span class="soc-icon">💬</span> WhatsApp
-    </a>
-    <a href="https://t.me/wydseoul2027" class="soc-btn tg">
-      <span class="soc-icon">✈️</span> Telegram
-    </a>
-    <a href="https://facebook.com/wydseoul2027" class="soc-btn fb">
-      <span class="soc-icon">👥</span> Facebook
-    </a>
-    <a href="https://youtube.com/@wydseoul2027" class="soc-btn yt">
-      <span class="soc-icon">▶️</span> YouTube
+
+<!-- ══ ITINERARIO ══ -->
+<div id="page-itinerario" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Itinerario JMJ</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ig">📅</div>
+    <h2>Itinerario oficial JMJ 2027</h2>
+    <p>La JMJ se celebrará en Seúl, Corea del Sur. Fechas exactas por confirmar por el Vaticano.</p>
+  </div>
+  <div class="db">
+    <div class="alert gold"><p>ℹ️ El programa oficial está en elaboración. Las fechas son orientativas basadas en JMJ anteriores.</p></div>
+    <h3>Estructura típica de la JMJ</h3>
+    <table class="info-table">
+      <tr><td>Días -3 a -1</td><td>Jornadas diocesanas en ciudades de Corea</td></tr>
+      <tr><td>Día 1</td><td>Ceremonia de apertura oficial</td></tr>
+      <tr><td>Días 2–4</td><td>Catequesis, encuentros, conciertos</td></tr>
+      <tr><td>Día 4</td><td>Vía Crucis con el Papa</td></tr>
+      <tr><td>Día 5</td><td>Vigilia nocturna</td></tr>
+      <tr><td>Día 6</td><td>Misa de clausura con el Papa</td></tr>
+    </table>
+    <h3>Nuestro paquete incluye</h3>
+    <ul class="chk">
+      <li>Registro oficial JMJ y acreditación a tu nombre</li>
+      <li>Kit del peregrino oficial</li>
+      <li>Guía hispanohablante en todos los eventos principales</li>
+      <li>Transporte desde el alojamiento al recinto</li>
+      <li>Apoyo logístico completo en español</li>
+    </ul>
+    <h3>Recomendamos llegar</h3>
+    <p>Al menos <strong>2–3 días antes</strong> para descansar y conocer Seúl. Paquete Premium incluye tours de llegada.</p>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Te avisamos cuando salga el programa oficial</p>
+      <p class="cta-mid">📋 Reservar mi lugar ahora</p>
+    </button>
+  </div>
+</div>
+
+
+<!-- ══ TOURS ══ -->
+<div id="page-tours" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Tours por Corea</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon it">🗺️</div>
+    <h2>Tours por Corea</h2>
+    <p>Más allá de la JMJ, Corea tiene mucho que ofrecer. Tours en español antes o después del evento.</p>
+  </div>
+  <div class="db">
+    <h3>Tour 1 — Seúl Clásico (1 día)</h3>
+    <ul class="chk">
+      <li>Palacio Gyeongbokgung y cambio de guardia</li>
+      <li>Bukchon Hanok Village — barrio histórico tradicional</li>
+      <li>Insadong — mercado artesanal y gastronomía</li>
+      <li>Myeongdong — compras y street food coreano</li>
+    </ul>
+    <h3>Tour 2 — Gyeongju, la Roma de Asia (1 día)</h3>
+    <ul class="chk">
+      <li>Tumuli Park — tumbas reales del reino Silla</li>
+      <li>Templo Bulguksa (Patrimonio UNESCO)</li>
+      <li>Gruta Seokguram</li>
+    </ul>
+    <h3>Tour 3 — Isla de Jeju (2 días)</h3>
+    <ul class="chk">
+      <li>Volcán Hallasan (Patrimonio UNESCO)</li>
+      <li>Cascadas y playas volcánicas únicas</li>
+      <li>Gastronomía local exclusiva de Jeju</li>
+    </ul>
+    <h3>Tour 4 — K-Cultura (medio día)</h3>
+    <ul class="chk">
+      <li>Taller de kimchi y cocina coreana</li>
+      <li>Barrios de Hongdae y Gangnam</li>
+      <li>Experiencia hanbok (traje tradicional)</li>
+    </ul>
+    <div class="alert"><p>🗣️ Todos los tours son en <strong>español</strong> con guía local bilingüe.</p></div>
+  </div>
+  <div class="dcta">
+    <a href="https://wa.me/821012345678?text=Hola!%20Me%20interesan%20los%20tours%20por%20Corea" class="cta-wa">💬 Preguntar sobre los tours</a>
+  </div>
+</div>
+
+
+<!-- ══ SEGURO ══ -->
+<div id="page-seguro" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Seguro de viaje</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ic">🛡️</div>
+    <h2>Seguro de viaje</h2>
+    <p>Viaja tranquilo. Nuestros paquetes incluyen seguro especializado para peregrinaciones internacionales.</p>
+  </div>
+  <div class="db">
+    <h3>Coberturas incluidas</h3>
+    <table class="info-table">
+      <tr><td>Gastos médicos</td><td>Hasta USD $50,000</td></tr>
+      <tr><td>Evacuación médica</td><td>Incluida</td></tr>
+      <tr><td>Cancelación de viaje</td><td>Enfermedad, accidente o causa mayor</td></tr>
+      <tr><td>Pérdida de equipaje</td><td>Hasta USD $1,500</td></tr>
+      <tr><td>Retraso de vuelo</td><td>Gastos de estadía cubiertos</td></tr>
+      <tr><td>Resp. civil</td><td>Incluida</td></tr>
+    </table>
+    <h3>¿Atención en español?</h3>
+    <p>Sí. La póliza y asistencia telefónica 24/7 están disponibles en español. Ante cualquier emergencia en Corea tienes línea directa en tu idioma.</p>
+    <div class="alert"><p>📋 El seguro de viaje es <strong>obligatorio</strong> para la acreditación oficial JMJ. Nosotros lo tramitamos por ti.</p></div>
+    <h3>¿Cómo se contrata?</h3>
+    <ul class="chk">
+      <li>Incluido automáticamente en Completo y Premium</li>
+      <li>Disponible como add-on para paquete Básico</li>
+      <li>Póliza grupal — más económica que individual</li>
+    </ul>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Seguro incluido en Completo y Premium</p>
+      <p class="cta-mid">📋 Ver paquetes con seguro</p>
+    </button>
+  </div>
+</div>
+
+
+<!-- ══ GRUPOS ══ -->
+<div id="page-grupos" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Grupos y Parroquias</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">⛪</div>
+    <h2>Paquete grupal parroquial</h2>
+    <p>Descuentos y atención dedicada para parroquias, diócesis, movimientos y grupos juveniles.</p>
+  </div>
+  <div class="db">
+    <h3>Beneficios para grupos</h3>
+    <ul class="chk">
+      <li>Descuento progresivo desde 15 personas</li>
+      <li>Asientos de avión juntos reservados en bloque</li>
+      <li>Guía hispanohablante exclusivo para tu grupo</li>
+      <li>Check-in y visas gestionados en conjunto</li>
+      <li>Material de preparación espiritual en español</li>
+      <li>Reunión previa online de orientación (gratis)</li>
+    </ul>
+    <h3>Descuentos por tamaño</h3>
+    <table class="info-table">
+      <tr><td>15–24 personas</td><td>5% de descuento</td></tr>
+      <tr><td>25–49 personas</td><td>8% de descuento</td></tr>
+      <tr><td>50+ personas</td><td>12% descuento + guía gratis</td></tr>
+    </table>
+    <div class="alert gold"><p>⏰ Cupos grupales limitados. Recomendamos contactar con <strong>al menos 10 meses</strong> de anticipación.</p></div>
+  </div>
+  <div class="dcta">
+    <a href="https://wa.me/821012345678?text=Hola!%20Soy%20p%C3%A1rroco%20y%20quiero%20info%20para%20mi%20grupo" class="cta-wa">💬 Contactar como párroco o coordinador</a>
+  </div>
+</div>
+
+
+<!-- ══ PAQUETE BÁSICO ══ -->
+<div id="page-basico" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Paquete Básico</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">🎒</div>
+    <h2>Paquete Básico</h2>
+    <p>Lo esencial para tu peregrinación. Vuelo, alojamiento y participación oficial en la JMJ.</p>
+  </div>
+  <div class="db">
+    <h3>Incluye</h3>
+    <ul class="chk">
+      <li>Vuelo internacional de ida y vuelta (clase turista)</li>
+      <li>Alojamiento en residencias JMJ oficiales (7 noches)</li>
+      <li>Registro oficial JMJ y acreditación</li>
+      <li>Kit del peregrino oficial</li>
+      <li>Traslado aeropuerto ↔ alojamiento</li>
+    </ul>
+    <h3>No incluye</h3>
+    <div class="tag-row">
+      <span class="tag tc">✗ Seguro de viaje</span>
+      <span class="tag tc">✗ Gestión de visa</span>
+      <span class="tag tc">✗ Guía personal</span>
+      <span class="tag tc">✗ Tours adicionales</span>
+    </div>
+    <div class="alert"><p>💡 Puedes añadir seguro y gestión de visa como extras. Pregúntanos al cotizar.</p></div>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Precio según ciudad de origen</p>
+      <p class="cta-mid">📋 Solicitar cotización Básico</p>
+    </button>
+  </div>
+</div>
+
+
+<!-- ══ PAQUETE COMPLETO ══ -->
+<div id="page-completo" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Paquete Completo</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">⭐</div>
+    <h2>Paquete Completo</h2>
+    <p>El más elegido. Todo lo del Básico más seguro, visa y guía en español.</p>
+  </div>
+  <div class="db">
+    <h3>Incluye</h3>
+    <ul class="chk">
+      <li>Todo el paquete Básico</li>
+      <li>Seguro de viaje completo (médico + cancelación)</li>
+      <li>Gestión de K-ETA o visa según tu país</li>
+      <li>Guía hispanohablante durante eventos JMJ</li>
+      <li>Grupo de WhatsApp de coordinación grupal</li>
+      <li>Reunión previa de preparación online (gratis)</li>
+    </ul>
+    <div class="alert"><p>⭐ Este paquete cubre todo lo obligatorio para la JMJ. La opción más popular entre grupos parroquiales.</p></div>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Precio según ciudad de origen</p>
+      <p class="cta-mid">📋 Solicitar cotización Completo</p>
+    </button>
+  </div>
+</div>
+
+
+<!-- ══ PAQUETE PREMIUM ══ -->
+<div id="page-premium" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Paquete Premium</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ig">👑</div>
+    <h2>Paquete Premium</h2>
+    <p>La experiencia completa. JMJ + tours por Corea + acompañante exclusivo de principio a fin.</p>
+  </div>
+  <div class="db">
+    <h3>Incluye</h3>
+    <ul class="chk">
+      <li>Todo el paquete Completo</li>
+      <li>Hotel 3★ o 4★ en Seúl</li>
+      <li>Acompañante exclusivo en español todo el viaje</li>
+      <li>2 tours por Corea (Seúl clásico + 1 a elegir)</li>
+      <li>Experiencia K-cultura (kimchi, hanbok, Gangnam)</li>
+      <li>Cenas de grupo incluidas</li>
+      <li>Asistencia 24/7 en destino</li>
+    </ul>
+    <div class="alert gold"><p>👑 Ideal para grupos adultos, peregrinaciones diocesanas o quienes viajan por primera vez a Asia.</p></div>
+  </div>
+  <div class="dcta">
+    <button class="cta-blue" onclick="goTo('page-cotizacion')">
+      <p class="cta-top">Precio según ciudad y tamaño de grupo</p>
+      <p class="cta-mid">📋 Solicitar cotización Premium</p>
+    </button>
+  </div>
+</div>
+
+
+<!-- ══ COTIZACIÓN ══ -->
+<div id="page-cotizacion" class="page">
+  <div class="topbar"><button class="back-btn" onclick="goTo('page-home')">← Inicio</button><span class="topbar-title">Solicitar cotización</span></div>
+  <div class="detail-hero">
+    <div class="detail-icon ib">📋</div>
+    <h2>Solicita tu cotización</h2>
+    <p>Escríbenos con los datos de tu grupo. Respondemos en menos de 24 horas.</p>
+  </div>
+  <div class="db">
+    <h3>Información que necesitamos</h3>
+    <ul class="chk">
+      <li>Tu nombre y país / ciudad de origen</li>
+      <li>Número de personas del grupo</li>
+      <li>Paquete de interés (Básico / Completo / Premium)</li>
+      <li>Fechas preferidas de viaje</li>
+      <li>¿Es grupo parroquial? Nombre de la parroquia o diócesis</li>
+    </ul>
+    <div class="alert gold"><p>⏰ <strong>Precios Early Bird</strong> para grupos que reserven antes de diciembre 2025. ¡No pierdas el descuento!</p></div>
+  </div>
+  <div class="db" style="padding-bottom:1.5rem;">
+    <h3 style="margin-bottom:12px;">Contáctanos ahora</h3>
+    <a href="https://wa.me/821012345678?text=Hola!%20Quiero%20cotizaci%C3%B3n%20para%20la%20JMJ%20Se%C3%BAl%202027.%0APa%C3%ADs%3A%20%0AN%C3%BAmero%20de%20personas%3A%20%0APaquete%3A" class="cta-wa" style="margin-bottom:10px;">💬 WhatsApp — Cotización rápida</a>
+    <a href="mailto:info@wydseoul2027.com?subject=Cotizaci%C3%B3n%20JMJ%20Se%C3%BAl%202027" class="cta-blue" style="margin-bottom:0; border-radius:var(--radius);">
+      <p class="cta-top">Adjunta los datos de tu grupo</p>
+      <p class="cta-mid">✉️ Enviar email</p>
     </a>
   </div>
 </div>
 
-<hr>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p class="footer-name">JMJ Seúl 2027 — Agencia MICE Korea</p>
-  <p class="footer-sub">Seúl, Corea del Sur · Hablamos español</p>
-  <p class="footer-lang">🇰🇷 Especialistas en peregrinaciones a Corea</p>
-</footer>
 
 <script>
-  function updateCountdown() {
-    var target = new Date('2027-08-01T00:00:00').getTime();
-    var now = new Date().getTime();
-    var diff = target - now;
-    if (diff <= 0) return;
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    document.getElementById('cd-d').textContent = d;
-    document.getElementById('cd-h').textContent = h;
-    document.getElementById('cd-m').textContent = m;
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 30000);
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  var t = document.getElementById(id);
+  if (t) { t.classList.add('active'); window.scrollTo(0,0); }
+}
+function updateCountdown() {
+  var diff = new Date('2027-08-01T00:00:00').getTime() - Date.now();
+  if (diff <= 0) return;
+  document.getElementById('cd-d').textContent = Math.floor(diff/86400000);
+  document.getElementById('cd-h').textContent = Math.floor((diff%86400000)/3600000);
+  document.getElementById('cd-m').textContent = Math.floor((diff%3600000)/60000);
+}
+updateCountdown();
+setInterval(updateCountdown, 30000);
 </script>
-
 </body>
 </html>
